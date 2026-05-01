@@ -73,6 +73,21 @@ body {
     text-align: center;
     border-radius: 8px;
     margin-bottom: 30px;
+    font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    font-family: 'Palatino Linotype', Georgia, serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    opacity: 0.95;
 }
 
 .section {
