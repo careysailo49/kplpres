@@ -197,9 +197,76 @@ body {
     background: #3498db;
 }
 
-.text-box {
-    background: white;
-    padding: 20px;
-    line-height: 1.6;
+.dropdown-button {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 240px;
+    padding: 14px 20px;
+    background: #3498db;
+    border: none;
     border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+    background: #2980b9;
+}
+
+.dropdown-toggle::after {
+    content: "▾";
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown-button:hover .dropdown-menu,
+.dropdown-button:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 14px 18px;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    position: relative;
+    padding-left: 44px;
+}
+
+.dropdown-menu a::before {
+    content: "🔗";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+    background: #ecf0f1;
+    color: #1a242f;
 }
