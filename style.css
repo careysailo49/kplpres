@@ -209,7 +209,7 @@ body {
     width: 100%;
     min-width: 240px;
     padding: 14px 20px;
-    background: #3498db;
+    background: #1f4c75;
     border: none;
     border-radius: 8px;
     color: white;
@@ -220,7 +220,7 @@ body {
 
 .dropdown-toggle:hover,
 .dropdown-toggle:focus {
-    background: #2980b9;
+    background: #163d60;
 }
 
 .dropdown-toggle::after {
@@ -235,7 +235,7 @@ body {
     top: calc(100% + 12px);
     left: 0;
     width: 100%;
-    background: white;
+    background: #2a3b4f;
     border-radius: 8px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     overflow: hidden;
@@ -250,7 +250,7 @@ body {
 .dropdown-menu a {
     display: block;
     padding: 14px 18px;
-    color: #2c3e50;
+    color: #ecf0f5;
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
     position: relative;
@@ -267,6 +267,68 @@ body {
 }
 
 .dropdown-menu a:hover {
-    background: #ecf0f1;
-    color: #1a242f;
+    background: #3b556f;
+    color: #f5f7fb;
+}
+
+@media (max-width: 900px) {
+    body {
+        display: block;
+    }
+
+    .side-menu {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .side-menu .logo h2 {
+        margin-bottom: 20px;
+    }
+
+    .side-menu ul li {
+        padding: 12px 0;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .grid-container {
+        gap: 15px;
+    }
+
+    .grid-item {
+        padding: 18px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn,
+    .dropdown-toggle {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        width: 100%;
+    }
 }
