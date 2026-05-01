@@ -50,38 +50,74 @@
             <h2>Kohhran Hun Ruat</h2>
             <div class="grid-container">
                 <div class="grid-item">
-                    <h3>Kohhran Inkhawm</h3>
-                    <p>Inrinni zan: 7:00 PM</p>
-                    <p>Pathianni Zing: 10:00 AM</p>
-                    <p>Pathianni Zan: 6:30 PM</p>
-                    <p>Inrinni zan: 7:00 PM</p>
-                    <p>Pathianni Zing: 10:00 AM</p>
-                    <p>Pathianni Zan: 6:30 PM</p>
-                    <p>Inrinni zan: 7:00 PM</p>
-                    <p>Pathianni Zing: 10:00 AM</p>
-                    <p>Pathianni Zan: 6:30 PM</p>
-                    <p>Inrinni zan: 7:00 PM</p>
-                    <p>Pathianni Zing: 10:00 AM</p>
-                    <p>Pathianni Zan: 6:30 PM</p>
+                    <div class="item-summary">
+                        <h3>Kohhran Inkhawm</h3>
+                        <p>Inrinni zan: 7:00 PM</p>
+                        <p>Pathianni Zing: 10:00 AM</p>
+                        <p class="more-note">Tap to view full schedule</p>
+                    </div>
+                    <div class="item-full-content" hidden>
+                        <p>Pathianni Zan: 6:30 PM</p>
+                        <p>Inrinni zan: 7:00 PM</p>
+                        <p>Pathianni Zing: 10:00 AM</p>
+                        <p>Pathianni Zan: 6:30 PM</p>
+                        <p>Inrinni zan: 7:00 PM</p>
+                        <p>Pathianni Zing: 10:00 AM</p>
+                        <p>Pathianni Zan: 6:30 PM</p>
+                        <p>Inrinni zan: 7:00 PM</p>
+                        <p>Pathianni Zing: 10:00 AM</p>
+                        <p>Pathianni Zan: 6:30 PM</p>
+                    </div>
                 </div>
                 <div class="grid-item">
-                    <h3>Fellowship Hun Ruat</h3>
-                    <p>KTP: Thawhtan zan</p>
-                    <p>Pavalaite: Thawhleh zan</p>
-                    <p>Kohhran Hmeichhia: Nilaini zan</p>
+                    <div class="item-summary">
+                        <h3>Fellowship Hun Ruat</h3>
+                        <p>KTP: Thawhtan zan</p>
+                        <p>Pavalaite: Thawhleh zan</p>
+                        <p class="more-note">Tap to view full details</p>
+                    </div>
+                    <div class="item-full-content" hidden>
+                        <p>Kohhran Hmeichhia: Nilaini zan</p>
+                        <p>KTP: Thawhtan zan</p>
+                        <p>Pavalaite: Thawhleh zan</p>
+                        <p>Kohhran Hmeichhia: Nilaini zan</p>
+                        <p>KTP: Thawhtan zan</p>
+                        <p>Pavalaite: Thawhleh zan</p>
+                        <p>Kohhran Hmeichhia: Nilaini zan</p>
+                    </div>
                 </div>
                 <div class="grid-item">
-                    <h3>Sande Sikul Hun Ruat</h3>
-                    <h4>Beginner Department</h4>
-                    <p>Hruaitu : </p>
-                    <p>Tantu :</p>
-                    <p>Thawhlawm Khawntu</p>
-                    <p>Monitor</p>
-                    <p>Pangpar Khawitu</p><br
-                    <p>Senior Department</p>
+                    <div class="item-summary">
+                        <h3>Sande Sikul Hun Ruat</h3>
+                        <h4>Beginner Department</h4>
+                        <p>Hruaitu</p>
+                        <p>Tantu</p>
+                        <p class="more-note">Tap to view full details</p>
+                    </div>
+                    <div class="item-full-content" hidden>
+                        <h4>Beginner Department</h4>
+                        <p>Hruaitu :</p>
+                        <p>Tantu :</p>
+                        <p>Thawhlawm Khawntu</p>
+                        <p>Monitor</p>
+                        <p>Pangpar Khawitu</p>
+                        <br>
+                        <p>Senior Department</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Popup Overlay -->
+        <div id="popup-overlay" aria-hidden="true">
+            <div class="popup" role="dialog" aria-modal="true">
+                <div class="popup-header">
+                    <h3>Details</h3>
+                    <button type="button" class="popup-close" aria-label="Close popup">×</button>
+                </div>
+                <div class="popup-content"></div>
+            </div>
+        </div>
 
         <!-- Section 3: Kohhran Peng Hrang Hrang -->
         <section id="peng-hrang" class="section">
@@ -95,5 +131,39 @@
         </section>
     </main>
 
+    <script>
+        const overlay = document.getElementById('popup-overlay');
+        const popupContent = overlay.querySelector('.popup-content');
+        const closeButton = overlay.querySelector('.popup-close');
+
+        document.querySelectorAll('.grid-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('.item-summary h3')?.outerHTML || '';
+                const fullContent = item.querySelector('.item-full-content')?.innerHTML || item.querySelector('.item-summary')?.innerHTML || item.innerHTML;
+                popupContent.innerHTML = title + fullContent;
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+        });
+
+        overlay.addEventListener('click', event => {
+            if (event.target === overlay) {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && overlay.classList.contains('active')) {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
 </body>
 </html>
