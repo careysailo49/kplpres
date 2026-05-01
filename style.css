@@ -308,6 +308,10 @@ body {
         font-size: 1rem;
     }
 
+    .section {
+        margin-bottom: 30px;
+    }
+
     .grid-container {
         gap: 15px;
     }
@@ -330,5 +334,21 @@ body {
         position: static;
         box-shadow: none;
         width: 100%;
+    }
+
+    .content .year-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px;
+    }
+
+    .content .year-buttons .btn,
+    .content .year-buttons .dropdown-toggle {
+        width: 100%;
+    }
+
+    .site-footer {
+        padding: 24px 20px;
+        width: 100%;
+        margin-left: 0;
     }
 }
