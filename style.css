@@ -241,6 +241,22 @@ body {
 }
 
 /* Buttons */
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;    /* Allows buttons to move to the next line */
+    gap: 15px;          /* Forces a 15px gap between ALL buttons */
+    padding: 20px 0;    /* Adds space above and below the group */
+    justify-content: flex-start; 
+}
+
+.button-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to move to the next line on mobile */
+    gap: 12px;       /* This creates the gap vertically AND horizontally */
+    padding: 10px 0;
+}
+
 .button-group {
     display: flex;
     gap: 15px;
@@ -261,6 +277,7 @@ body {
 }
 
 .dropdown-button {
+    width: fit-content;
     position: relative;
     display: inline-block;
 }
@@ -269,8 +286,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    min-width: 240px;
+    width: auto;
+    min-width: fit-content;
     padding: 14px 20px;
     background: #1f4c75;
     border: none;
@@ -278,7 +295,9 @@ body {
     color: white;
     font-size: 1rem;
     cursor: pointer;
+    gap: 12px;
     transition: background 0.3s, transform 0.2s;
+    
 }
 
 .dropdown-toggle:hover,
@@ -394,8 +413,8 @@ body {
     }
 
     .dropdown-menu {
-        position: static;
-        box-shadow: none;
+        /* position: static;
+        box-shadow: none; */
         width: 100%;
     }
 
